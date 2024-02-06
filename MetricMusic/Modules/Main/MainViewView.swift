@@ -13,19 +13,40 @@ struct MainViewView: View {
     
     var body: some View {
         NavigationStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            VStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Hello, world!")
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .padding()
         .onAppear(perform: {
-            viewModel.start()
+            Task {
+                await viewModel.start()
+            }
         })
         .searchable(text: $viewModel.searchTerm)
+        .searchSuggestions {
+            ForEach(viewModel.artists) { artist in
+                HStack {
+                    Text(artist.name)
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity)
+            }
+        }
+
     }
 }
 
 #Preview {
-    MainViewView(viewModel: MainViewModel())
+    MainViewView(viewModel: MainViewModel(repository: ArtistRepositoryStub()))
+}
+
+struct ArtistRepositoryStub: ArtistRepositoryProtocol {
+    func fetch(at url: URL) async throws -> ArtistsContainer {
+        ArtistsContainer(artists: [])
+    }
 }

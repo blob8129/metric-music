@@ -9,23 +9,19 @@
 /* Begin PBXBuildFile section */
 		C80B4F942B72B1E8000702F9 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B4F932B72B1E8000702F9 /* NetworkingService.swift */; };
 		C80B4F992B72B64A000702F9 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B4F982B72B64A000702F9 /* Repository.swift */; };
+		C80B4F9C2B72BBA7000702F9 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B4F9B2B72BBA7000702F9 /* Artist.swift */; };
+		C80B4F9F2B72BBC9000702F9 /* ArtistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B4F9E2B72BBC9000702F9 /* ArtistTests.swift */; };
 		C87EB27C2B6D4CED00576E77 /* MetricMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87EB27B2B6D4CED00576E77 /* MetricMusicApp.swift */; };
 		C87EB27E2B6D4CED00576E77 /* MainViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87EB27D2B6D4CED00576E77 /* MainViewView.swift */; };
 		C87EB2802B6D4CEF00576E77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C87EB27F2B6D4CEF00576E77 /* Assets.xcassets */; };
 		C87EB2832B6D4CEF00576E77 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C87EB2822B6D4CEF00576E77 /* Preview Assets.xcassets */; };
 		C87EB28D2B6D4CEF00576E77 /* MetricMusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87EB28C2B6D4CEF00576E77 /* MetricMusicTests.swift */; };
 		C87EB2A92B6D531500576E77 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87EB2A82B6D531500576E77 /* MainViewModel.swift */; };
+		C8F6CA152B72D45D00759F3B /* ArtistMB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F6CA142B72D45D00759F3B /* ArtistMB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		C87EB2892B6D4CEF00576E77 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C87EB2702B6D4CED00576E77 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C87EB2772B6D4CED00576E77;
-			remoteInfo = MetricMusic;
-		};
-		C87EB2932B6D4CEF00576E77 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C87EB2702B6D4CED00576E77 /* Project object */;
 			proxyType = 1;
@@ -37,6 +33,8 @@
 /* Begin PBXFileReference section */
 		C80B4F932B72B1E8000702F9 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		C80B4F982B72B64A000702F9 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		C80B4F9B2B72BBA7000702F9 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		C80B4F9E2B72BBC9000702F9 /* ArtistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTests.swift; sourceTree = "<group>"; };
 		C87EB2782B6D4CED00576E77 /* MetricMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetricMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C87EB27B2B6D4CED00576E77 /* MetricMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricMusicApp.swift; sourceTree = "<group>"; };
 		C87EB27D2B6D4CED00576E77 /* MainViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewView.swift; sourceTree = "<group>"; };
@@ -44,8 +42,8 @@
 		C87EB2822B6D4CEF00576E77 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C87EB2882B6D4CEF00576E77 /* MetricMusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetricMusicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C87EB28C2B6D4CEF00576E77 /* MetricMusicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricMusicTests.swift; sourceTree = "<group>"; };
-		C87EB2922B6D4CEF00576E77 /* MetricMusicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetricMusicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C87EB2A82B6D531500576E77 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		C8F6CA142B72D45D00759F3B /* ArtistMB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,13 +55,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C87EB2852B6D4CEF00576E77 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C87EB28F2B6D4CEF00576E77 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -98,6 +89,23 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		C80B4F9A2B72BB94000702F9 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				C80B4F9B2B72BBA7000702F9 /* Artist.swift */,
+				C8F6CA142B72D45D00759F3B /* ArtistMB.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		C80B4F9D2B72BBB1000702F9 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C80B4F9E2B72BBC9000702F9 /* ArtistTests.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		C87EB26F2B6D4CED00576E77 = {
 			isa = PBXGroup;
 			children = (
@@ -112,7 +120,6 @@
 			children = (
 				C87EB2782B6D4CED00576E77 /* MetricMusic.app */,
 				C87EB2882B6D4CEF00576E77 /* MetricMusicTests.xctest */,
-				C87EB2922B6D4CEF00576E77 /* MetricMusicUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,6 +147,7 @@
 		C87EB28B2B6D4CEF00576E77 /* MetricMusicTests */ = {
 			isa = PBXGroup;
 			children = (
+				C80B4F9D2B72BBB1000702F9 /* Entities */,
 				C87EB28C2B6D4CEF00576E77 /* MetricMusicTests.swift */,
 			);
 			path = MetricMusicTests;
@@ -156,6 +164,7 @@
 		C87EB2A62B6D51AE00576E77 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				C80B4F9A2B72BB94000702F9 /* Entity */,
 				C87EB2A82B6D531500576E77 /* MainViewModel.swift */,
 				C87EB27D2B6D4CED00576E77 /* MainViewView.swift */,
 			);
@@ -208,24 +217,6 @@
 			productReference = C87EB2882B6D4CEF00576E77 /* MetricMusicTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C87EB2912B6D4CEF00576E77 /* MetricMusicUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C87EB2A22B6D4CEF00576E77 /* Build configuration list for PBXNativeTarget "MetricMusicUITests" */;
-			buildPhases = (
-				C87EB28E2B6D4CEF00576E77 /* Sources */,
-				C87EB28F2B6D4CEF00576E77 /* Frameworks */,
-				C87EB2902B6D4CEF00576E77 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C87EB2942B6D4CEF00576E77 /* PBXTargetDependency */,
-			);
-			name = MetricMusicUITests;
-			productName = MetricMusicUITests;
-			productReference = C87EB2922B6D4CEF00576E77 /* MetricMusicUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -240,10 +231,6 @@
 						CreatedOnToolsVersion = 15.2;
 					};
 					C87EB2872B6D4CEF00576E77 = {
-						CreatedOnToolsVersion = 15.2;
-						TestTargetID = C87EB2772B6D4CED00576E77;
-					};
-					C87EB2912B6D4CEF00576E77 = {
 						CreatedOnToolsVersion = 15.2;
 						TestTargetID = C87EB2772B6D4CED00576E77;
 					};
@@ -264,7 +251,6 @@
 			targets = (
 				C87EB2772B6D4CED00576E77 /* MetricMusic */,
 				C87EB2872B6D4CEF00576E77 /* MetricMusicTests */,
-				C87EB2912B6D4CEF00576E77 /* MetricMusicUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -286,13 +272,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C87EB2902B6D4CEF00576E77 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -300,10 +279,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C80B4F9C2B72BBA7000702F9 /* Artist.swift in Sources */,
 				C87EB27E2B6D4CED00576E77 /* MainViewView.swift in Sources */,
 				C87EB27C2B6D4CED00576E77 /* MetricMusicApp.swift in Sources */,
 				C80B4F992B72B64A000702F9 /* Repository.swift in Sources */,
 				C87EB2A92B6D531500576E77 /* MainViewModel.swift in Sources */,
+				C8F6CA152B72D45D00759F3B /* ArtistMB.swift in Sources */,
 				C80B4F942B72B1E8000702F9 /* NetworkingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,14 +293,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C80B4F9F2B72BBC9000702F9 /* ArtistTests.swift in Sources */,
 				C87EB28D2B6D4CEF00576E77 /* MetricMusicTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C87EB28E2B6D4CEF00576E77 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,11 +305,6 @@
 			isa = PBXTargetDependency;
 			target = C87EB2772B6D4CED00576E77 /* MetricMusic */;
 			targetProxy = C87EB2892B6D4CEF00576E77 /* PBXContainerItemProxy */;
-		};
-		C87EB2942B6D4CEF00576E77 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C87EB2772B6D4CED00576E77 /* MetricMusic */;
-			targetProxy = C87EB2932B6D4CEF00576E77 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -558,42 +528,6 @@
 			};
 			name = Release;
 		};
-		C87EB2A32B6D4CEF00576E77 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M5YJ2XAG2D;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blob8129.MetricMusicUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MetricMusic;
-			};
-			name = Debug;
-		};
-		C87EB2A42B6D4CEF00576E77 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = M5YJ2XAG2D;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blob8129.MetricMusicUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MetricMusic;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -620,15 +554,6 @@
 			buildConfigurations = (
 				C87EB2A02B6D4CEF00576E77 /* Debug */,
 				C87EB2A12B6D4CEF00576E77 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C87EB2A22B6D4CEF00576E77 /* Build configuration list for PBXNativeTarget "MetricMusicUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C87EB2A32B6D4CEF00576E77 /* Debug */,
-				C87EB2A42B6D4CEF00576E77 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

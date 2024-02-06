@@ -11,7 +11,7 @@ import SwiftUI
 struct MetricMusicApp: App {
     var body: some Scene {
         WindowGroup {
-            MainViewView(viewModel: MainViewModel())
+            MainViewView(viewModel: MainViewModel(repository: ArtistRepository()))
         }
     }
 }
