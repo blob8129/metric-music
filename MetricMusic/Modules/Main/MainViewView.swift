@@ -7,18 +7,25 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainViewView: View {
+    
+    @Bindable var viewModel: MainViewModel
+    
     var body: some View {
-        VStack {
+        NavigationStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
         }
         .padding()
+        .onAppear(perform: {
+            viewModel.start()
+        })
+        .searchable(text: $viewModel.searchTerm)
     }
 }
 
 #Preview {
-    ContentView()
+    MainViewView(viewModel: MainViewModel())
 }

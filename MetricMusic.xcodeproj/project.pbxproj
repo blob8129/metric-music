@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C80B4F942B72B1E8000702F9 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B4F932B72B1E8000702F9 /* NetworkingService.swift */; };
+		C80B4F992B72B64A000702F9 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B4F982B72B64A000702F9 /* Repository.swift */; };
 		C87EB27C2B6D4CED00576E77 /* MetricMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87EB27B2B6D4CED00576E77 /* MetricMusicApp.swift */; };
-		C87EB27E2B6D4CED00576E77 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87EB27D2B6D4CED00576E77 /* ContentView.swift */; };
+		C87EB27E2B6D4CED00576E77 /* MainViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87EB27D2B6D4CED00576E77 /* MainViewView.swift */; };
 		C87EB2802B6D4CEF00576E77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C87EB27F2B6D4CEF00576E77 /* Assets.xcassets */; };
 		C87EB2832B6D4CEF00576E77 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C87EB2822B6D4CEF00576E77 /* Preview Assets.xcassets */; };
 		C87EB28D2B6D4CEF00576E77 /* MetricMusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87EB28C2B6D4CEF00576E77 /* MetricMusicTests.swift */; };
+		C87EB2A92B6D531500576E77 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87EB2A82B6D531500576E77 /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +35,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C80B4F932B72B1E8000702F9 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		C80B4F982B72B64A000702F9 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		C87EB2782B6D4CED00576E77 /* MetricMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetricMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C87EB27B2B6D4CED00576E77 /* MetricMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricMusicApp.swift; sourceTree = "<group>"; };
-		C87EB27D2B6D4CED00576E77 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C87EB27D2B6D4CED00576E77 /* MainViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewView.swift; sourceTree = "<group>"; };
 		C87EB27F2B6D4CEF00576E77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C87EB2822B6D4CEF00576E77 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C87EB2882B6D4CEF00576E77 /* MetricMusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetricMusicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C87EB28C2B6D4CEF00576E77 /* MetricMusicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricMusicTests.swift; sourceTree = "<group>"; };
 		C87EB2922B6D4CEF00576E77 /* MetricMusicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetricMusicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C87EB2A82B6D531500576E77 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C80B4F912B72B11D000702F9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C80B4F922B72B128000702F9 /* NetworkingService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C80B4F922B72B128000702F9 /* NetworkingService */ = {
+			isa = PBXGroup;
+			children = (
+				C80B4F932B72B1E8000702F9 /* NetworkingService.swift */,
+			);
+			path = NetworkingService;
+			sourceTree = "<group>";
+		};
+		C80B4F962B72B632000702F9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C80B4F982B72B64A000702F9 /* Repository.swift */,
+				C80B4F912B72B11D000702F9 /* Services */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		C87EB26F2B6D4CED00576E77 = {
 			isa = PBXGroup;
 			children = (
@@ -89,8 +120,9 @@
 		C87EB27A2B6D4CED00576E77 /* MetricMusic */ = {
 			isa = PBXGroup;
 			children = (
-				C87EB27B2B6D4CED00576E77 /* MetricMusicApp.swift */,
-				C87EB27D2B6D4CED00576E77 /* ContentView.swift */,
+				C87EB2A72B6D51B900576E77 /* Application */,
+				C80B4F962B72B632000702F9 /* Common */,
+				C87EB2A52B6D51A200576E77 /* Modules */,
 				C87EB27F2B6D4CEF00576E77 /* Assets.xcassets */,
 				C87EB2812B6D4CEF00576E77 /* Preview Content */,
 			);
@@ -111,6 +143,31 @@
 				C87EB28C2B6D4CEF00576E77 /* MetricMusicTests.swift */,
 			);
 			path = MetricMusicTests;
+			sourceTree = "<group>";
+		};
+		C87EB2A52B6D51A200576E77 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C87EB2A62B6D51AE00576E77 /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		C87EB2A62B6D51AE00576E77 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C87EB2A82B6D531500576E77 /* MainViewModel.swift */,
+				C87EB27D2B6D4CED00576E77 /* MainViewView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C87EB2A72B6D51B900576E77 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				C87EB27B2B6D4CED00576E77 /* MetricMusicApp.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,8 +300,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C87EB27E2B6D4CED00576E77 /* ContentView.swift in Sources */,
+				C87EB27E2B6D4CED00576E77 /* MainViewView.swift in Sources */,
 				C87EB27C2B6D4CED00576E77 /* MetricMusicApp.swift in Sources */,
+				C80B4F992B72B64A000702F9 /* Repository.swift in Sources */,
+				C87EB2A92B6D531500576E77 /* MainViewModel.swift in Sources */,
+				C80B4F942B72B1E8000702F9 /* NetworkingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +474,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -443,6 +504,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
