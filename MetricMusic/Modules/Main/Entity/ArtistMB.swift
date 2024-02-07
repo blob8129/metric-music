@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ArtistMB: Codable, Identifiable {
+struct ArtistMB: Codable, Identifiable, Hashable {
     let id: UUID
     let type: String?
     let name: String

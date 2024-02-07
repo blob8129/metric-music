@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct MainViewView: View {
+struct MainView: View {
     
     @Bindable var viewModel: MainViewModel
+   
+    //@State private var artistPath = [ArtistMB]()
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $viewModel.artistPath) {
             VStack {
                 Image(systemName: "globe")
                     .imageScale(.large)
@@ -20,6 +22,20 @@ struct MainViewView: View {
                 Text("Hello, world!")
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .navigationDestination(for: ArtistMB.self) { artist in
+                ArtistDetailsView(viewModel: .init(artist: artist))
+            }
+            .searchable(text: $viewModel.searchTerm)
+            .searchSuggestions {
+                ForEach(viewModel.artists) { artist in
+                    Button {
+                        viewModel.navigate(to: artist)
+                    } label: {
+                        AristView(artist: artist)
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+            }
         }
         .padding()
         .onAppear(perform: {
@@ -27,22 +43,12 @@ struct MainViewView: View {
                 await viewModel.start()
             }
         })
-        .searchable(text: $viewModel.searchTerm)
-        .searchSuggestions {
-            ForEach(viewModel.artists) { artist in
-                HStack {
-                    Text(artist.name)
-                    Spacer()
-                }
-                .frame(maxWidth: .infinity)
-            }
-        }
-
     }
 }
 
+
 #Preview {
-    MainViewView(viewModel: MainViewModel(repository: ArtistRepositoryStub()))
+    MainView(viewModel: MainViewModel(repository: ArtistRepositoryStub()))
 }
 
 struct ArtistRepositoryStub: ArtistRepositoryProtocol {

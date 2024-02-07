@@ -12,12 +12,15 @@
 		C80B4F9C2B72BBA7000702F9 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B4F9B2B72BBA7000702F9 /* Artist.swift */; };
 		C80B4F9F2B72BBC9000702F9 /* ArtistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80B4F9E2B72BBC9000702F9 /* ArtistTests.swift */; };
 		C87EB27C2B6D4CED00576E77 /* MetricMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87EB27B2B6D4CED00576E77 /* MetricMusicApp.swift */; };
-		C87EB27E2B6D4CED00576E77 /* MainViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87EB27D2B6D4CED00576E77 /* MainViewView.swift */; };
+		C87EB27E2B6D4CED00576E77 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87EB27D2B6D4CED00576E77 /* MainView.swift */; };
 		C87EB2802B6D4CEF00576E77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C87EB27F2B6D4CEF00576E77 /* Assets.xcassets */; };
 		C87EB2832B6D4CEF00576E77 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C87EB2822B6D4CEF00576E77 /* Preview Assets.xcassets */; };
 		C87EB28D2B6D4CEF00576E77 /* MetricMusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87EB28C2B6D4CEF00576E77 /* MetricMusicTests.swift */; };
 		C87EB2A92B6D531500576E77 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87EB2A82B6D531500576E77 /* MainViewModel.swift */; };
 		C8F6CA152B72D45D00759F3B /* ArtistMB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F6CA142B72D45D00759F3B /* ArtistMB.swift */; };
+		C8F6CA182B73A8D900759F3B /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F6CA172B73A8D900759F3B /* ArtistView.swift */; };
+		C8F6CA1C2B73C1A700759F3B /* ArtistDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F6CA1B2B73C1A700759F3B /* ArtistDetailsView.swift */; };
+		C8F6CA1E2B73C21400759F3B /* ArtistDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F6CA1D2B73C21400759F3B /* ArtistDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,13 +40,16 @@
 		C80B4F9E2B72BBC9000702F9 /* ArtistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTests.swift; sourceTree = "<group>"; };
 		C87EB2782B6D4CED00576E77 /* MetricMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetricMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C87EB27B2B6D4CED00576E77 /* MetricMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricMusicApp.swift; sourceTree = "<group>"; };
-		C87EB27D2B6D4CED00576E77 /* MainViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewView.swift; sourceTree = "<group>"; };
+		C87EB27D2B6D4CED00576E77 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C87EB27F2B6D4CEF00576E77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C87EB2822B6D4CEF00576E77 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C87EB2882B6D4CEF00576E77 /* MetricMusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetricMusicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C87EB28C2B6D4CEF00576E77 /* MetricMusicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricMusicTests.swift; sourceTree = "<group>"; };
 		C87EB2A82B6D531500576E77 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		C8F6CA142B72D45D00759F3B /* ArtistMB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMB.swift; sourceTree = "<group>"; };
+		C8F6CA172B73A8D900759F3B /* ArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistView.swift; sourceTree = "<group>"; };
+		C8F6CA1B2B73C1A700759F3B /* ArtistDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsView.swift; sourceTree = "<group>"; };
+		C8F6CA1D2B73C21400759F3B /* ArtistDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +162,7 @@
 		C87EB2A52B6D51A200576E77 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C8F6CA192B73C18C00759F3B /* ArtistDetails */,
 				C87EB2A62B6D51AE00576E77 /* Main */,
 			);
 			path = Modules;
@@ -164,9 +171,9 @@
 		C87EB2A62B6D51AE00576E77 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				C80B4F9A2B72BB94000702F9 /* Entity */,
 				C87EB2A82B6D531500576E77 /* MainViewModel.swift */,
-				C87EB27D2B6D4CED00576E77 /* MainViewView.swift */,
+				C80B4F9A2B72BB94000702F9 /* Entity */,
+				C8F6CA162B73A83700759F3B /* View */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -177,6 +184,32 @@
 				C87EB27B2B6D4CED00576E77 /* MetricMusicApp.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		C8F6CA162B73A83700759F3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C87EB27D2B6D4CED00576E77 /* MainView.swift */,
+				C8F6CA172B73A8D900759F3B /* ArtistView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C8F6CA192B73C18C00759F3B /* ArtistDetails */ = {
+			isa = PBXGroup;
+			children = (
+				C8F6CA1D2B73C21400759F3B /* ArtistDetailsViewModel.swift */,
+				C8F6CA1A2B73C19700759F3B /* View */,
+			);
+			path = ArtistDetails;
+			sourceTree = "<group>";
+		};
+		C8F6CA1A2B73C19700759F3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C8F6CA1B2B73C1A700759F3B /* ArtistDetailsView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,10 +313,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C80B4F9C2B72BBA7000702F9 /* Artist.swift in Sources */,
-				C87EB27E2B6D4CED00576E77 /* MainViewView.swift in Sources */,
+				C8F6CA1C2B73C1A700759F3B /* ArtistDetailsView.swift in Sources */,
+				C8F6CA1E2B73C21400759F3B /* ArtistDetailsViewModel.swift in Sources */,
+				C87EB27E2B6D4CED00576E77 /* MainView.swift in Sources */,
 				C87EB27C2B6D4CED00576E77 /* MetricMusicApp.swift in Sources */,
 				C80B4F992B72B64A000702F9 /* Repository.swift in Sources */,
 				C87EB2A92B6D531500576E77 /* MainViewModel.swift in Sources */,
+				C8F6CA182B73A8D900759F3B /* ArtistView.swift in Sources */,
 				C8F6CA152B72D45D00759F3B /* ArtistMB.swift in Sources */,
 				C80B4F942B72B1E8000702F9 /* NetworkingService.swift in Sources */,
 			);

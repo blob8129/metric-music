@@ -25,9 +25,10 @@ protocol ArtistRepositoryProtocol {
     func fetch(at url: URL) async throws -> ArtistsContainer
 }
 
-@Observable class MainViewModel {
+@Observable final class MainViewModel {
     
     var artists = [ArtistMB]()
+    var artistPath = [ArtistMB]()
     
     private let subject = PassthroughSubject<String, Never>()
     private var allCancellables = Set<AnyCancellable>()
@@ -58,7 +59,6 @@ protocol ArtistRepositoryProtocol {
             URLQueryItem(name: "query", value: "artist:\(searhTerm)"),
             URLQueryItem(name: "fmt", value: "json")
         ])
-        print(url)
         do {
             artists = try await repository.fetch(at: url).artists
             print(artists)
@@ -71,8 +71,13 @@ protocol ArtistRepositoryProtocol {
         subject.send(searchTerm)
     }
     
+    func navigate(to artist: ArtistMB) {
+        searchTerm = ""
+        artists = []
+        artistPath.append(artist)
+    }
+    
     init(repository: ArtistRepositoryProtocol) {
         self.repository = repository
-
     }
 }
