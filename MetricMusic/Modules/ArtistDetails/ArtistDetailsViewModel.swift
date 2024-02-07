@@ -7,13 +7,44 @@
 
 import Foundation
 
-struct Album: Codable, Hashable, Identifiable {
+struct Release: Codable, Equatable, Hashable, Identifiable {
+    let id: UUID
+    let releaseGroup: ReleaseGroup?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case releaseGroup = "release-group"
+    }
+}
+
+struct ReleaseGroup: Codable, Hashable, Equatable {
+    let primaryType: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case primaryType = "primary-type"
+    }
+}
+
+struct Recording: Codable, Hashable, Identifiable {
     let id: UUID
     let title: String
+    let releases: [Release]?
+    let firstReleaseDate: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case releases
+        case firstReleaseDate = "first-release-date"
+    }
+    
+    var firstReleasePrimaryType: String {
+        releases?.first?.releaseGroup?.primaryType ?? "-"
+    }
 }
 
 struct AlbumsContainer: Codable {
-    let recordings: [Album]
+    let recordings: [Recording]
 }
 
 protocol AlbumsLoader {
@@ -45,7 +76,7 @@ final class AlbumsRepository: RepositoryProtocol, AlbumsLoader {
     func loadAlbums() async {
         let url = baseURL.appending(queryItems: [
             URLQueryItem(name: "query", value: "arid:\(artist.id)"),
-            URLQueryItem(name: "fmt", value: "json")
+            URLQueryItem(name: "fmt", value: "json"),
         ])
         print(url)
         do {
