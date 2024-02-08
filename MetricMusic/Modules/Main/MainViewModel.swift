@@ -56,14 +56,14 @@ protocol ArtistRepositoryProtocol {
             return
         }
         let url = baseURL.appending(queryItems: [
-            URLQueryItem(name: "query", value: "artist:\(searhTerm)"),
-            URLQueryItem(name: "fmt", value: "json")
+            .init(name: "query", value: "artist:\(searhTerm)"),
+            .init(name: "fmt", value: "json")
         ])
         do {
             artists = try await repository.fetch(at: url).artists
-            print(artists)
         } catch {
-           print(error)
+            // TODO: Handle error
+            print(error)
         }
     }
     

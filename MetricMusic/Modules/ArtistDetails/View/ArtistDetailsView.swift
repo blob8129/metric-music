@@ -38,9 +38,9 @@ struct ArtistDetailsView: View {
                 Spacer()
 
                 Button {
-                    
+                    viewModel.addOrRemoveToFavorites()
                 } label: {
-                    Image(systemName: "star")
+                    Image(systemName: viewModel.isFavorite ? "star.fill" : "star")
                         .font(.title)
                 }
             }
@@ -91,7 +91,7 @@ struct ArtistDetailsView: View {
         .navigationTitle("Artist")
         .navigationBarTitleDisplayMode(.inline)
         .task {
-            await viewModel.loadAlbums()
+            await viewModel.start()
         }
     }
 }

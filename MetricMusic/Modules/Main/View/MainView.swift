@@ -31,7 +31,7 @@ struct MainView: View {
                     Button {
                         viewModel.navigate(to: artist)
                     } label: {
-                        AristView(artist: artist)
+                        AristSuggestionView(artist: artist)
                     }
                     .frame(maxWidth: .infinity)
                 }
