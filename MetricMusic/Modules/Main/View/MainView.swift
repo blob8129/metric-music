@@ -10,8 +10,6 @@ import SwiftUI
 struct MainView: View {
     
     @Bindable var viewModel: MainViewModel
-   
-    //@State private var artistPath = [ArtistMB]()
     
     var body: some View {
         NavigationStack(path: $viewModel.artistPath) {
@@ -27,13 +25,20 @@ struct MainView: View {
             }
             .searchable(text: $viewModel.searchTerm)
             .searchSuggestions {
-                ForEach(viewModel.artists) { artist in
-                    Button {
-                        viewModel.navigate(to: artist)
-                    } label: {
-                        AristSuggestionView(artist: artist)
+                switch viewModel.suggestionsState {
+                case .input:
+                    Group {}
+                case .loading:
+                    LoadingProgressIndicator()
+                case .loaded(let suggestions):
+                    ForEach(suggestions) { artist in
+                        Button {
+                            viewModel.navigate(to: artist)
+                        } label: {
+                            AristSuggestionView(artist: artist)
+                        }
+                        .frame(maxWidth: .infinity)
                     }
-                    .frame(maxWidth: .infinity)
                 }
             }
         }

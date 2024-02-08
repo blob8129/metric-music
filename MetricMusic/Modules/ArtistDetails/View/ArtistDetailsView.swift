@@ -48,15 +48,7 @@ struct ArtistDetailsView: View {
             
             switch viewModel.state {
             case .loading:
-                VStack(alignment: .center) {
-                    HStack {
-                        Spacer()
-                        ProgressView()
-                            .padding()
-                            .progressViewStyle(.circular)
-                        Spacer()
-                    }
-                }
+                LoadingProgressIndicator()
             case .loaded(let albums):
                 List {
                     Text("Recordings")

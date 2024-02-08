@@ -25,10 +25,18 @@ protocol ArtistRepositoryProtocol {
     func fetch(at url: URL) async throws -> ArtistsContainer
 }
 
+enum SuggestionsState {
+    case input
+    case loading
+    case loaded(suggestions: [ArtistMB])
+}
+
 @Observable final class MainViewModel {
     
-    var artists = [ArtistMB]()
+   // var artistSuggestions = [ArtistMB]()
+    var suggestionsState = SuggestionsState.input
     var artistPath = [ArtistMB]()
+    var favoriteArtists = [ArtistMB]()
     
     private let subject = PassthroughSubject<String, Never>()
     private var allCancellables = Set<AnyCancellable>()
@@ -52,7 +60,7 @@ protocol ArtistRepositoryProtocol {
     
     private func loadArtists(searhTerm: String) async {
         guard !searhTerm.isEmpty else {
-            artists = []
+            suggestionsState = .input
             return
         }
         let url = baseURL.appending(queryItems: [
@@ -60,7 +68,9 @@ protocol ArtistRepositoryProtocol {
             .init(name: "fmt", value: "json")
         ])
         do {
-            artists = try await repository.fetch(at: url).artists
+            suggestionsState = .loading
+            let artistSuggestions = try await repository.fetch(at: url).artists
+            suggestionsState = .loaded(suggestions: artistSuggestions)
         } catch {
             // TODO: Handle error
             print(error)
@@ -73,7 +83,7 @@ protocol ArtistRepositoryProtocol {
     
     func navigate(to artist: ArtistMB) {
         searchTerm = ""
-        artists = []
+        suggestionsState = .input
         artistPath.append(artist)
     }
     
