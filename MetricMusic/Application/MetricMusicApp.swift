@@ -11,7 +11,7 @@ import SwiftUI
 struct MetricMusicApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView(viewModel: MainViewModel())
+            BrowseView(viewModel: BrowseViewModel())
                 .tint(Color(.systemRed))
         }
     }

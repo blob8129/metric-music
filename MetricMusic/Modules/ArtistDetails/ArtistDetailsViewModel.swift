@@ -7,69 +7,6 @@
 
 import Foundation
 
-extension PersistentStorage where StoredItemType == [ArtistMB] {
-    static func key() -> String {
-        "ArtistMBPersistentStorageKey"
-    }
-}
-
-struct Release: Codable, Equatable, Hashable, Identifiable {
-    let id: UUID
-    let releaseGroup: ReleaseGroup?
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case releaseGroup = "release-group"
-    }
-}
-
-struct ReleaseGroup: Codable, Hashable, Equatable {
-    let primaryType: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case primaryType = "primary-type"
-    }
-}
-
-struct Recording: Codable, Hashable, Identifiable {
-    let id: UUID
-    let title: String
-    let releases: [Release]?
-    let firstReleaseDate: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case title
-        case releases
-        case firstReleaseDate = "first-release-date"
-    }
-    
-    var firstReleasePrimaryType: String {
-        releases?.first?.releaseGroup?.primaryType ?? "-"
-    }
-}
-
-struct AlbumsContainer: Codable {
-    let recordings: [Recording]
-}
-
-protocol AlbumsLoader {
-    func fetch(at url: URL) async throws -> AlbumsContainer
-}
-
-final class AlbumsRepository: RepositoryProtocol, AlbumsLoader {
-    let networkService: BasicNetworkService
-    let decoder: JSONDecoder
-    
-    typealias Entity = AlbumsContainer
-    
-    init(networkService: BasicNetworkService = NetworkService(),
-         decoder: JSONDecoder = JSONDecoder()) {
-        self.networkService = networkService
-        self.decoder = decoder
-    }
-}
-
 enum ArtisDetailsState {
     case loading
     case loaded([Recording])

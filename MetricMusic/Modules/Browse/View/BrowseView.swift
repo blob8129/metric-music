@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct BrowseView: View {
     
-    @Bindable var viewModel: MainViewModel
+    @Bindable var viewModel: BrowseViewModel
     
     var body: some View {
         NavigationStack(path: $viewModel.artistPath) {
@@ -18,6 +18,8 @@ struct MainView: View {
                     FavoritesEmptyStateView()
                 } else {
                     List() {
+                        Text("Favorites")
+                            .foregroundStyle(.secondary)
                         ForEach(viewModel.favoriteArtists) { artist in
                             Button {
                                 viewModel.navigate(to: artist)
@@ -29,25 +31,14 @@ struct MainView: View {
                     .listStyle(.plain)
                 }
             }
+            .navigationTitle("Browse")
             .navigationDestination(for: ArtistMB.self) { artist in
                 ArtistDetailsView(viewModel: .init(artist: artist))
             }
             .searchable(text: $viewModel.searchTerm)
             .searchSuggestions {
-                switch viewModel.suggestionsState {
-                case .input:
-                    Group {}
-                case .loading:
-                    LoadingProgressIndicator()
-                case .loaded(let suggestions):
-                    ForEach(suggestions) { artist in
-                        Button {
-                            viewModel.navigate(to: artist)
-                        } label: {
-                            AristSuggestionView(artist: artist)
-                        }
-                        .frame(maxWidth: .infinity)
-                    }
+                SuggestionsView(suggestionsState: viewModel.suggestionsState) { artist in
+                    viewModel.navigate(to: artist)
                 }
             }
             .task {
@@ -60,7 +51,7 @@ struct MainView: View {
 
 
 #Preview {
-    MainView(viewModel: MainViewModel(repository: ArtistRepositoryStub()))
+    BrowseView(viewModel: BrowseViewModel(repository: ArtistRepositoryStub()))
 }
 
 struct ArtistRepositoryStub: ArtistRepositoryProtocol {

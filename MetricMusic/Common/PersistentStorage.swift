@@ -39,3 +39,10 @@ struct PersistentStorage<StoredItemType: Codable> {
         self.defaults = defaults
     }
 }
+
+extension PersistentStorage where StoredItemType == [ArtistMB] {
+    static func key() -> String {
+        "ArtistMBPersistentStorageKey"
+    }
+}
+

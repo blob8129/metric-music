@@ -8,30 +8,13 @@
 import SwiftUI
 import Combine
 
-struct ArtistRepository: RepositoryProtocol, ArtistRepositoryProtocol {
-    typealias Entity = ArtistsContainer
-    
-    let networkService: BasicNetworkService
-    let decoder: JSONDecoder
-    
-    init(networkService: BasicNetworkService = NetworkService(),
-         decoder: JSONDecoder = JSONDecoder()) {
-        self.networkService = networkService
-        self.decoder = decoder
-    }
-}
-
-protocol ArtistRepositoryProtocol {
-    func fetch(at url: URL) async throws -> ArtistsContainer
-}
-
 enum SuggestionsState {
     case input
     case loading
     case loaded(suggestions: [ArtistMB])
 }
 
-@Observable final class MainViewModel {
+@Observable final class BrowseViewModel {
     
     var suggestionsState = SuggestionsState.input
     var artistPath = [ArtistMB]()

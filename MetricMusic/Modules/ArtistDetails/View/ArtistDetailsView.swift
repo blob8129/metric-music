@@ -70,7 +70,7 @@ struct AlbumsLoaderStub: AlbumsLoader {
     
     let albums: [Recording]
     
-    func fetch(at url: URL) async throws -> AlbumsContainer {
-        AlbumsContainer(recordings: albums)
+    func fetch(at url: URL) async throws -> RecordingsContainer {
+        RecordingsContainer(recordings: albums)
     }
 }
