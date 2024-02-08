@@ -30,6 +30,7 @@
 		C8F6CA2F2B75082E00759F3B /* RecordingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F6CA2E2B75082E00759F3B /* RecordingsContainer.swift */; };
 		C8F6CA312B7508B900759F3B /* AlbumsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F6CA302B7508B900759F3B /* AlbumsRepository.swift */; };
 		C8F6CA332B75091600759F3B /* ArtistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F6CA322B75091600759F3B /* ArtistRepository.swift */; };
+		C8F6CA352B750CCC00759F3B /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F6CA342B750CCC00759F3B /* Debouncer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		C8F6CA2E2B75082E00759F3B /* RecordingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsContainer.swift; sourceTree = "<group>"; };
 		C8F6CA302B7508B900759F3B /* AlbumsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsRepository.swift; sourceTree = "<group>"; };
 		C8F6CA322B75091600759F3B /* ArtistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistRepository.swift; sourceTree = "<group>"; };
+		C8F6CA342B750CCC00759F3B /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		C80B4F962B72B632000702F9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C8F6CA342B750CCC00759F3B /* Debouncer.swift */,
 				C8F6CA1F2B74D12E00759F3B /* PersistentStorage.swift */,
 				C80B4F982B72B64A000702F9 /* Repository.swift */,
 				C80B4F912B72B11D000702F9 /* Services */,
@@ -360,6 +363,7 @@
 				C8F6CA252B74E6BF00759F3B /* FavoritesEmptyStateView.swift in Sources */,
 				C8F6CA232B74E39200759F3B /* LoadingProgressIndicator.swift in Sources */,
 				C80B4F992B72B64A000702F9 /* Repository.swift in Sources */,
+				C8F6CA352B750CCC00759F3B /* Debouncer.swift in Sources */,
 				C87EB2A92B6D531500576E77 /* BrowseViewModel.swift in Sources */,
 				C8F6CA182B73A8D900759F3B /* AristSuggestionView.swift in Sources */,
 				C8F6CA152B72D45D00759F3B /* ArtistMB.swift in Sources */,

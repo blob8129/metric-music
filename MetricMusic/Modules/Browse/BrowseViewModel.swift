@@ -20,30 +20,28 @@ enum SuggestionsState {
     var artistPath = [ArtistMB]()
     var favoriteArtists = [ArtistMB]()
     
-    private let subject = PassthroughSubject<String, Never>()
-    private var allCancellables = Set<AnyCancellable>()
     private let repository: ArtistRepositoryProtocol
     private let baseURL = URL(string: "https://musicbrainz.org/ws/2/artist/")!
     private let storage: PersistentStorage<[ArtistMB]>
+    private let debouncer: Debouncer
     
     var searchTerm = "" {
-        didSet {
-            debounce(searchTerm)
+        willSet {
+            debouncer.debounce {
+                Task {
+                    self.debouce(term: newValue)
+                }
+            }
         }
     }
     
     @MainActor
     func start() async {
         favoriteArtists = storage.load() ?? []
-        subject.debounce(for: .seconds(1), scheduler: RunLoop.main)
-            .sink { term in
-                Task {
-                    await self.loadArtists(searhTerm: term)
-                }
-            }.store(in: &allCancellables)
     }
     
-    private func loadArtists(searhTerm: String) async {
+    @MainActor
+    func loadSuggestions(searhTerm: String) async {
         guard !searhTerm.isEmpty else {
             suggestionsState = .input
             return
@@ -62,8 +60,10 @@ enum SuggestionsState {
         }
     }
     
-    private func debounce(_ searchTerm: String) {
-        subject.send(searchTerm)
+    func debouce(term: String) {
+        Task {
+            await loadSuggestions(searhTerm: term)
+        }
     }
     
     func navigate(to artist: ArtistMB) {
@@ -73,8 +73,10 @@ enum SuggestionsState {
     }
     
     init(repository: ArtistRepositoryProtocol = ArtistRepository(),
-         storage: PersistentStorage<[ArtistMB]> = PersistentStorage(storageKey: PersistentStorage.key())) {
+         storage: PersistentStorage<[ArtistMB]> = PersistentStorage(storageKey: PersistentStorage.key()),
+         debouncer: Debouncer = Debouncer(debounceInterval: 1)) {
         self.repository = repository
         self.storage = storage
+        self.debouncer = debouncer
     }
 }

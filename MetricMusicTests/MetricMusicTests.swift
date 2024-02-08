@@ -8,29 +8,72 @@
 import XCTest
 @testable import MetricMusic
 
+class ArtistStotageStub: AnyStorage {
+    
+    var value: [ArtistMB]?
+    var setValue: Any?
+    
+    func set(_ value: Any?, forKey defaultName: String) {
+        setValue = value
+    }
+    
+    func data(forKey defaultName: String) -> Data? {
+        guard let value else {
+            return nil
+        }
+        return try? JSONEncoder().encode(value)
+    }
+    
+    func removeObject(forKey defaultName: String) {
+        
+    }
+}
+
+class ArtistRepositorStub: ArtistRepositoryProtocol {
+    
+    var value: ArtistsContainer?
+    
+    func fetch(at url: URL) async throws -> ArtistsContainer {
+        guard let value else {
+            throw TestError.testError
+        }
+        return value
+    }
+}
+
+enum TestError: Error {
+    case testError
+}
+
 final class MetricMusicTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testFavoriteArtistsEmpty() async throws {
+        
+        let viewModel = BrowseViewModel.build()
+        await viewModel.start()
+        
+        XCTAssertTrue(viewModel.favoriteArtists.isEmpty)
     }
+    
+    func testFavoriteArtistsSaved() async throws {
+        let favoriteArtists = [
+            ArtistMB(id: UUID(), type: "test type 1", name: "test name 1", country: "test country 1"),
+            .init(id: UUID(), type: "test type 2", name: "test name 2", country: "test country 2")
+        ]
+        let viewModel = BrowseViewModel.build(favoriteArtists: favoriteArtists)
+        await viewModel.start()
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        XCTAssertEqual(viewModel.favoriteArtists, favoriteArtists)
     }
+}
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+
+extension BrowseViewModel {
+    static func build(favoriteArtists: [ArtistMB]? = nil) -> BrowseViewModel {
+        var storageDefaults = ArtistStotageStub()
+        storageDefaults.value = favoriteArtists
+        return BrowseViewModel(repository: ArtistRepositorStub(),
+                               storage: PersistentStorage(storageKey: "", defaults: storageDefaults))
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
