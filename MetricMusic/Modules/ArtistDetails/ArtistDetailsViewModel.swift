@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ArtisDetailsState {
+enum ArtisDetailsState: Equatable {
     case loading
     case loaded([Recording])
 }
@@ -17,7 +17,7 @@ enum ArtisDetailsState {
     let artist: ArtistMB
     let repository: AlbumsLoader
     var isFavorite = false
-    var state: ArtisDetailsState
+    var state = ArtisDetailsState.loading
     private let storage: PersistentStorage<[ArtistMB]>
     
     private let baseURL = URL(string: "https://musicbrainz.org/ws/2/recording/")!
@@ -55,11 +55,9 @@ enum ArtisDetailsState {
     
     init(artist: ArtistMB,
          repository: AlbumsLoader = AlbumsRepository(),
-         state: ArtisDetailsState = .loading,
          storage: PersistentStorage<[ArtistMB]> = .init(storageKey: PersistentStorage.key())) {
         self.repository = repository
         self.artist = artist
-        self.state = state
         self.storage = storage
     }
 }

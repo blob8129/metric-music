@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-enum SuggestionsState {
+enum SuggestionsState: Equatable {
     case input
     case loading
     case loaded(suggestions: [ArtistMB])
