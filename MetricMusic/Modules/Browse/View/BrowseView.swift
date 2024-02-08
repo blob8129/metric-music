@@ -13,13 +13,14 @@ struct BrowseView: View {
     
     var body: some View {
         NavigationStack(path: $viewModel.artistPath) {
-            VStack {
+            VStack(alignment: .leading) {
                 if viewModel.favoriteArtists.isEmpty {
                     FavoritesEmptyStateView()
                 } else {
+                    Text("Favorites")
+                        .foregroundStyle(.secondary)
+                        .padding(.leading)
                     List() {
-                        Text("Favorites")
-                            .foregroundStyle(.secondary)
                         ForEach(viewModel.favoriteArtists) { artist in
                             Button {
                                 viewModel.navigate(to: artist)
