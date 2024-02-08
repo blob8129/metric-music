@@ -22,7 +22,7 @@ final class NetworkService: BasicNetworkService {
     private let session: URLSessionProtocol
     
     func loadData(at url: URL) async throws -> Data {
-        let (data, response) = try await session.data(from: url, delegate: nil)
+        let (data, _) = try await session.data(from: url, delegate: nil)
         return data
     }
     

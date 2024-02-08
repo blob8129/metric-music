@@ -33,7 +33,6 @@ enum SuggestionsState {
 
 @Observable final class MainViewModel {
     
-   // var artistSuggestions = [ArtistMB]()
     var suggestionsState = SuggestionsState.input
     var artistPath = [ArtistMB]()
     var favoriteArtists = [ArtistMB]()
@@ -42,6 +41,7 @@ enum SuggestionsState {
     private var allCancellables = Set<AnyCancellable>()
     private let repository: ArtistRepositoryProtocol
     private let baseURL = URL(string: "https://musicbrainz.org/ws/2/artist/")!
+    private let storage: PersistentStorage<[ArtistMB]>
     
     var searchTerm = "" {
         didSet {
@@ -49,7 +49,9 @@ enum SuggestionsState {
         }
     }
     
+    @MainActor
     func start() async {
+        favoriteArtists = storage.load() ?? []
         subject.debounce(for: .seconds(1), scheduler: RunLoop.main)
             .sink { term in
                 Task {
@@ -87,7 +89,9 @@ enum SuggestionsState {
         artistPath.append(artist)
     }
     
-    init(repository: ArtistRepositoryProtocol) {
+    init(repository: ArtistRepositoryProtocol = ArtistRepository(),
+         storage: PersistentStorage<[ArtistMB]> = PersistentStorage(storageKey: PersistentStorage.key())) {
         self.repository = repository
+        self.storage = storage
     }
 }

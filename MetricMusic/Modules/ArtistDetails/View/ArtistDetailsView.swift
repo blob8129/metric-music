@@ -7,76 +7,21 @@
 
 import SwiftUI
 
-enum ArtisDetailsState {
-    case loading
-    case loaded([Recording])
-}
-
 struct ArtistDetailsView: View {
     
     @State var viewModel: ArtistDetailsViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 12) {
-                    Text(viewModel.artist.name)
-                        .font(.largeTitle)
-                        .bold()
-                        .foregroundStyle(Color.accentColor)
-                    
-                    HStack {
-                        Text(viewModel.artist.country ?? "-")
-                            .font(.title2)
-                            .foregroundStyle(Color.secondary)
-                        
-                        Text(viewModel.artist.type ?? "-")
-                            .font(.title2)
-                            .foregroundStyle(Color.secondary)
-                    }
-                }
-                Spacer()
-
-                Button {
-                    viewModel.addOrRemoveToFavorites()
-                } label: {
-                    Image(systemName: viewModel.isFavorite ? "star.fill" : "star")
-                        .font(.title)
-                }
+            ArtistInfoView(artist: viewModel.artist,
+                           isFavorite: viewModel.isFavorite) {
+                viewModel.addOrRemoveToFavorites()
             }
-            .padding()
-            
             switch viewModel.state {
             case .loading:
                 LoadingProgressIndicator()
-            case .loaded(let albums):
-                List {
-                    Text("Recordings")
-                        .foregroundStyle(.secondary)
-                    ForEach(albums) { album in
-                        VStack {
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(album.title)
-                                        .font(.headline)
-                                    Text(album.firstReleaseDate ?? "")
-                                        .font(.caption)
-                                        .foregroundStyle(Color.secondary)
-                                }
-                                
-                                Spacer()
-                                
-                                VStack(alignment: .trailing) {
-                                    Text("release")
-                                        .font(.caption)
-                                        .foregroundStyle(Color.secondary)
-                                    Text(album.firstReleasePrimaryType)
-                                }
-                            }
-                        }
-                    }
-                }
-                .listStyle(.plain)
+            case .loaded(let recordings):
+                RecordingsView(recordings: recordings)
             }
             Spacer()
         }

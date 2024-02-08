@@ -14,12 +14,21 @@ struct MainView: View {
     var body: some View {
         NavigationStack(path: $viewModel.artistPath) {
             VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Hello, world!")
+                if viewModel.favoriteArtists.isEmpty {
+                    FavoritesEmptyStateView()
+                } else {
+                    List() {
+                        ForEach(viewModel.favoriteArtists) { artist in
+                            Button {
+                                viewModel.navigate(to: artist)
+                            } label: {
+                                ArtistInfoView(artist: artist, isFavorite: true)
+                            }
+                        }
+                    }
+                    .listStyle(.plain)
+                }
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .navigationDestination(for: ArtistMB.self) { artist in
                 ArtistDetailsView(viewModel: .init(artist: artist))
             }
@@ -41,13 +50,11 @@ struct MainView: View {
                     }
                 }
             }
-        }
-        .padding()
-        .onAppear(perform: {
-            Task {
+            .task {
                 await viewModel.start()
             }
-        })
+        }
+        .padding()
     }
 }
 

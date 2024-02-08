@@ -70,6 +70,11 @@ final class AlbumsRepository: RepositoryProtocol, AlbumsLoader {
     }
 }
 
+enum ArtisDetailsState {
+    case loading
+    case loaded([Recording])
+}
+
 @Observable final class ArtistDetailsViewModel {
     
     let artist: ArtistMB
