@@ -25,12 +25,12 @@ enum SuggestionsState: Equatable {
     private let storage: PersistentStorage<[ArtistMB]>
     private let debouncer: Debouncer
     
+    var loadSuggestionsTask: Task<Void, Never>?
+    
     var searchTerm = "" {
         willSet {
             debouncer.debounce {
-                Task {
-                    self.debouce(term: newValue)
-                }
+                self.debouce(term: newValue)
             }
         }
     }
@@ -53,6 +53,9 @@ enum SuggestionsState: Equatable {
         do {
             suggestionsState = .loading
             let artistSuggestions = try await repository.fetch(at: url).artists
+            guard !Task.isCancelled else {
+                return
+            }
             suggestionsState = .loaded(suggestions: artistSuggestions)
         } catch {
             // TODO: Handle error
@@ -61,7 +64,8 @@ enum SuggestionsState: Equatable {
     }
     
     func debouce(term: String) {
-        Task {
+        loadSuggestionsTask?.cancel()
+        loadSuggestionsTask = Task {
             await loadSuggestions(searhTerm: term)
         }
     }
